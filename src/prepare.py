@@ -2,13 +2,13 @@ from pathlib import Path
 
 import pandas as pd
 
-FOLDERS_TO_LABELS = {"n03445777": "golf ball", "n03888257": "parachute"}
+FOLDERS_TO_LABELS = {"food": "food", "non_food": "non_food"}
 
 
 def get_files_and_labels(source_path):
     images = []
     labels = []
-    for image_path in source_path.rglob("*/*.JPEG"):
+    for image_path in source_path.rglob("*/*.JPG"):
         filename = image_path.absolute()
         folder = image_path.parent.name
         if folder in FOLDERS_TO_LABELS:
